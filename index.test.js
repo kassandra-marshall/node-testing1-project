@@ -43,23 +43,19 @@ describe('[Exercise 4] Counter', () => {
     counter = new utils.Counter(3) // each test must start with a fresh couter
   })
   test('[6] the FIRST CALL of counter.countDown returns the initial count', () => {
-    expect(counter).toBe(3)
+    expect(counter.countDown()).toBe(3)
   })
   test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
-    expect(counter).toBe(3)
-    expect(counter).toBe(2)
+    counter.countDown()
+    expect(counter.countDown()).toBe(2)
 
   })
   test('[8] the count eventually reaches zero but does not go below zero', () => {
-    expect(counter).toBe(3)
-    expect(counter).toBe(2)
-    expect(counter).toBe(1)
-    expect(counter).toBe(0)
-    expect(counter).toBe(0)
-
-
-
-    
+    counter.countDown()
+    counter.countDown()
+    counter.countDown()
+    counter.countDown()
+    expect(counter.countDown()).toBe(0)
   })
 })
 
